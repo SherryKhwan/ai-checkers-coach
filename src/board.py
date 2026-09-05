@@ -24,8 +24,23 @@ class Board:
         return board
 
     def display(self):
-        for row in self.board:
-            print(" ".join(str(piece) for piece in row))
+        column_labels = "  a b c d e f g h"
+        print(column_labels)
+
+        for row_index, row in enumerate(self.board):
+            symbols = []
+
+            for piece in row:
+                if piece is None:
+                    symbols.append(".")
+                elif piece.color == "black":
+                    symbols.append("b" if piece.is_king else "B")
+                elif piece.color == "white":
+                    symbols.append("w" if piece.is_king else "W")
+
+            print(f"{8 - row_index} {' '.join(symbols)}")
+
+        print(column_labels)
 
 
 if __name__ == "__main__":
