@@ -66,15 +66,15 @@ class Move:
         return (
             f"Move(from_row={self.from_row}, from_col={self.from_col}, "
             f"to_row={self.to_row}, to_col={self.to_col}, "
-            f"captured={self.captured}, is_king_move={self.is_king_move})"
+            f"captured={self.captured})"
         )
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, Move):
             return NotImplemented
+
         return (
             self.from_square == other.from_square
             and self.to_square == other.to_square
             and self.captured == other.captured
-            and self.is_king_move == other.is_king_move
         )
