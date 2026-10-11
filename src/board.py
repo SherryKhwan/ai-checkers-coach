@@ -6,6 +6,20 @@ class Board:
     def __init__(self):
         self.board = self.create_initial_board()
 
+    def copy(self):
+        new_board = Board()
+
+        new_board.board = [
+            [
+                Piece(piece.color, piece.is_king)
+                if piece is not None else None
+                for piece in row
+            ]
+            for row in self.board
+        ]
+
+        return new_board
+
     def create_initial_board(self):
         board = []
 
