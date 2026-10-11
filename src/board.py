@@ -1,5 +1,5 @@
-from piece import Piece
-from move import Move
+from src.piece import Piece
+from src.move import Move
 
 
 class Board:
